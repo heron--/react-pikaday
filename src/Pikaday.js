@@ -63,6 +63,10 @@ var ReactPikaday = React.createClass({
     this.setDateIfChanged(this.getValueLink(this.props).value);
   },
 
+  componentWillUnmount: function() {
+    this._picker.destroy();
+  },
+
   componentWillReceiveProps: function(nextProps) {
     var newDate = this.getValueLink(nextProps).value;
     var lastDate = this.getValueLink(this.props).value;
